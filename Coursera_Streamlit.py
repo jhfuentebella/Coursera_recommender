@@ -253,46 +253,70 @@ if my_page == 'About our App':
     st.markdown('<p class="style-text"><span class="highlight">Language and Regional Limitations:</span> The dataset and the recommendations may be biased towards courses available in certain languages or regions, since we are only focusing on English courses, which potentially limits recommendations for users seeking courses in less common languages or specific geographical areas.</p>', unsafe_allow_html=True)
     st.markdown('<p class="style-text"><span class="highlight">Accuracy and Coverage:</span> The recommendations generated will depend on the accuracy and coverage of the data and our recommendation model. We aim to optimize accuracy but acknowledge the inherent limitations of any recommendation system.</p>', unsafe_allow_html=True)
 
-
-
-
 elif my_page == 'Exploratory Data Analysis':
     st.title('Exploratory Data Analysis')
     st.markdown('Allow us to take you through the findings we obtained from our data')
     st.divider()
 
-    st.header('Pillars of Coursera’s Education')
+    st.header('Pillars of :blue[Coursera’s] Education')
     st.subheader('Introducing Data, Python, and Management')
     st.image('streamlit_photos/wordcloud_title.png', caption = 'The most common words in the course title\'s', width = 800)
+    st.markdown("""
+    The word cloud highlights a focus on :blue[**"Data"**], indicating data analysis and science, :blue[**"Python"**], representing programming, and :blue[**"Design"**], suggesting system or software design.
+    Showing the demand for technical skills in data handling and software creation.
 
+    Alternatively, the word cloud also highlights the Modern Business Curriculum, which are :blue[**"Management"**] - a key business concept, :blue[**"Analysis"**] - reflecting analytical skills, and :blue[**"Innovation"**] - indicating forward-thinking approaches.
+
+    Technical skills and business concepts are evident in Course titles. Moreover, the word :blue[**“Introduction”**] is highlighted, implying that the majority of the courses are at the beginner difficulty.
+    """)
     st.divider()
 
     st.header('Titans of Skills')
     st.subheader('Leadership Reigns Supreme, Tech Skills Rise')
     st.image('streamlit_photos/wordcloud_skills.png', caption = 'The most common words in the course skill description\'s', width = 800)
-    st.image('streamlit_photos/top5_skills.png', caption = 'The top 5 skills based on the skills listed', width = 800)
+    st.markdown("""
+    For this Course Skills' Word cloud, it shows Prominent Themes such as :blue[**"Management"**], :blue[**"Leadership"**], :blue[**"Data Science"**], :blue[**"Machine Learning"**], and :blue[**"Computer Science"**], indicating that these are the most emphasized skills across the courses. This suggests a high demand for knowledge in these areas.
 
+    Another key point is Business and Project Management: The frequent appearance of terms like :blue[**"Project Management"**], :blue[**"Business Strategy"**], and :blue[**"Leadership"**] underscores the importance of managerial and strategic skills in 2021's job market
+
+    Lastly, Emerging Trends: Such as :blue[**"Computer Programming"**], :blue[**"Machine learning"**] are gaining importance in the modern educational landscape, since the data is 2021, which as of today, validates the point.
+
+    """)
+    st.image('streamlit_photos/top5_skills.png', caption = 'The top 5 skills based on the skills listed', width = 800)
+    st.markdown("""
+    To have a deeper dive in the Course Skills’ Word Cloud, we have here the Top 5 Most Frequent Skills in the Coursera, :blue[**“project”**], :blue[**“Leadership and Management”**], :blue[**“analysis”**], :blue[**“Computer Programming”**], and :blue[**“Machine Learning”**]
+    """)
     st.divider()
 
     st.header('Coursera’s Commitment')
     st.subheader('Majority of Ratings Soar Above 4.5')
     st.image('streamlit_photos/course_rating.png', caption = 'Most of the courses are rated high, above 4.5 out of 5', width = 800)
-
+    st.markdown("""
+    This histogram illustrates the distribution of course ratings on Coursera for the year :blue[**2021**]. The majority of courses are highly rated, with a significant concentration around the :blue[**4.5 to 5.0 range**], indicating overall satisfaction among learners. The density plot overlay highlights a sharp peak, reinforcing the trend of high ratings and showcasing Coursera's commitment to quality education
+    """)
     st.divider()
+
+    st.header('Difficulty Meets Satisfaction')
+    st.image('streamlit_photos/ratingdifficulty_boxplot.png', caption = 'Course Difficulty and Satisfaction', width = 800)
+    st.markdown("""
+    This Box Plot, Captures the essence of comparing difficulty levels with course ratings, implying that the relationship between challenge and enjoyment in learning is being explored. It compares course ratings across four difficulty levels: :blue[**Beginner, Advanced, Intermediate, and Conversant.**] Generally, all difficulty levels show high median ratings between :blue[**4.5 and 5.0.**] Interestingly, Advanced courses have the widest range of ratings, including some very low outliers, while Conversant courses show the most consistent ratings with the smallest interquartile range.
+    """)
    
 elif my_page == 'How does the Model work?':
     st.title('How does the Model work?')
     st.divider()
-    st.header('The Modeling and Predcition Pipeline')
-    st.markdown('''Here’s a breakdown of how our modeling pipeline works: First, we split the dataset into a 75% chunk for training and validation, and the remaining 25% for a holdout set. In performing the said split, we maintain a 1:1 ratio between the NTA/YTA data to avoid any bias towards one tag. Within the training and validation set, we use a five-fold stratified KFold cross-validation method. This technique ensures the model gets a good mix of different data slices to train on and test against, improving its robustness.\n\nDuring each fold of cross-validation, we apply the DynamicFewShotGPTClassifier: a model that utilizes a KNN-like algorithm to dynamically select the most similar examples in the prompt to assist in classification. Now this is where the magic happens—we fine-tune parameters like 'n_examples' to maximize accuracy. After running through all the folds, we pick the settings that deliver the highest accuracy across the board. Finally, we put the model to the ultimate test using the holdout set, evaluating its performance on unseen data to ensure it’s ready for real-world challenges. This thorough approach—from rigorous training to meticulous testing—ensures our model is optimized and reliable before it’s put into action.''')
-    st.image('Reddit_Photos/Modeling_Pipeline.png')
-    st.subheader('Our model obtained a 92% holdout accuracy')
-    st.markdown('''After fine-tuning our model through rigorous cross-validation and parameter optimization, we achieved great results during evaluation on the holdout set. Our model demonstrated impressive performance with a holdout accuracy of 92%, correctly identifying 23 out of 25 instances it was sampled to test. This high level of accuracy validates the effectiveness of the model we were able to streamline through our iterations. ''')
-    st.image('Reddit_Photos/Modeling_Results.png')
-    st.subheader('Prediction: Understanding how ChatGPT gives feedback')
-    st.markdown('''In order to come up with the best results, we use the model with the best settings (n_examples=3) to come up with the tagging. Then using the _get_prompt() method of FewShotDynamicGPTClassifier, we can retrieve the training data most similar to the user submission. Besides ChatGPT giving the user input a tagging, we can ask it to generate a prompt asking why it gave that tagging basing their answer on the most similar training data.\n\nBesides ChatGPT giving the user input a tagging, we can also ask it to generate a prompt asking why it gave that tagging basing their answer on the most similar training data.\n\nPrompt: Briefly explain why you gave the {predicted_tagging} to the above user submission. Shortly reference this similar submission with tagging {nearest_comment_tag} as a basis for your explanation: {nearest_comment}''')
-    st.image('Reddit_Photos/Modeling_Prediction.png', use_column_width = 'Never')
-    st.markdown('''Curious to see how that goes? Head to the \'Check if you\'re the A**hole\' page to get started!''')
+
+    st.header('Firstly, Preprocessing')
+    st.image('streamlit_photos/prepro.png', width = 800)
+    st.markdown("""
+    - **Character Encoding**: Removed special characters.
+    - **Language Detection**: Filtered out non-English text.
+    - **Data Preprocessing**: Dropped duplicates and missing values.
+    - **Text Preprocessing**: Removed HTML tags and noise words, tokenized and lemmatized the text.
+    - **Data Selection for Modeling**: Disregarded rows labeled as 'Not Calibrated' under 'Course Difficulty' and 'Course Rating'.
+    """)
+    st.divider()
+
 
 elif my_page == 'Course Recommender App':
     st.title('Course Recommender App')
