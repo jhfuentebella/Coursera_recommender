@@ -1,0 +1,10 @@
+streamlit
+pandas
+nltk
+matplotlib
+openai
+scikit-learn
+bs4
+Unidecode
+chromadb
+joblib
