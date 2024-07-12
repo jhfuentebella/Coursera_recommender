@@ -9,3 +9,4 @@ Unidecode
 chromadb
 joblib
 scikit-llm
+pysqlite3-binary
