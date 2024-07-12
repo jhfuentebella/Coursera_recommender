@@ -31,13 +31,13 @@ from openai import OpenAI
     
 st.set_page_config(layout='wide')
 
-api_key = open('openaiapikey.txt').read()
+api_key = st.secrets["api_key"]
 SKLLMConfig.set_openai_key(api_key)
 client = OpenAI(api_key=api_key)
 
 # Constants
-CHROMA_DATA_PATH = 'courserafinal_v2_final'
-COLLECTION_NAME = 'courserafinal_v2'
+CHROMA_DATA_PATH = 'coursera2021_dataset50'
+COLLECTION_NAME = 'coursera2021_dataset_embeddings50'
 
 # Initialize ChromaDB client
 client = chromadb.PersistentClient(path=CHROMA_DATA_PATH)
