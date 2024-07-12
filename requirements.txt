@@ -8,3 +8,4 @@ bs4
 Unidecode
 chromadb
 joblib
+scikit-llm
