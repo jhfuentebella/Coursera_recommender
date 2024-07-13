@@ -317,9 +317,33 @@ elif my_page == 'How does the Model work?':
     """)
     st.divider()
 
+    st.header('The Modeling and Prediction Pipeline')
+    st.markdown('''Today, I'll walk you through our comprehensive end-to-end methodology for our RAG workflow. We'll start from the initial dataset preparation and follow through to the final stage where our chatbot generates a tailored course suggestion in response to a user prompt.''')
+    st.image('streamlit_photos/15.png')
+
+    st.markdown('''
+    During our data prep phase, we first remove entries without ratings or difficulty levels to maintain data quality. We then clean up the text by removing unnecessary symbols and HTML tags.
+
+    For each course, we utilize its title and description for embedding it into the vector database.
+
+    Additionally, we store relevant course details, such as ratings and difficulty levels, in metadata formatted as a dictionary. This ensures better filtering capabilities when responding to user prompts.
+    ''')
+    st.image('streamlit_photos/16.png')
+
+    st.markdown('''
+    We embed the user query to fetch the top n most similar results from our knowledge base. Filters can be applied as needed to meet user preferences.
+    ''')
+    st.image('streamlit_photos/17.png')
+
+    st.markdown('''
+    After obtaining the course suggestions, we pass this information to ChatGPT and instruct it to provide a concise summary of the course selection. This summary also talks about how the suggested courses can be beneficial to the user based on their entered prompt.
+    ''')
+    st.image('streamlit_photos/18.png')
+
 
 elif my_page == 'Course Recommender App':
     st.title('Course Recommender App')
+    st.markdown('\*DISCLAIMER: This online version of the app is limited to only 300 embedded data points due to file size restrictions on the GitHub cloud. Results may not be as accurate."
 
     df = pd.read_csv("cleaned_coursera_v2.csv")
 
