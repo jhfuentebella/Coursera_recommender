@@ -216,8 +216,6 @@ if my_page == 'About our App':
     """, unsafe_allow_html=True)
 
     st.markdown('<p class="style-text">This Streamlit app makes use of Coursera data to develop a machine learning model that can assist you in deciding the perfect online learning course fit to your needs.</p>', unsafe_allow_html=True)
-    st.markdown('A project by: 
-    st.divider()
 
     st.header("Primary Learner Goals")
     st.subheader("Welcome to the Future of Learning!")
