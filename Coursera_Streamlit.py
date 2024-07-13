@@ -196,7 +196,9 @@ my_page = st.sidebar.radio('Page Navigation',
 
 
 if my_page == 'About our App':
-
+    
+    st.subheader('Eskwelabs Data Science Fellowship Cohort 13: Sprint 4')
+    st.markdown('A Project by: Alfonso Luis Kan, Carlos Lester Covarrubias II, Jacob Noel Fuentebella, Jules Juanites, and Smart Krys Lazam')
     st.image('streamlit_photos/coursera_header.png', width = 900)
     st.markdown("""
     <style>
@@ -250,11 +252,7 @@ if my_page == 'About our App':
     st.markdown('<p class="style-text"><span class="highlight">Data Source:</span> Our initial dataset is sourced from the 2021 Coursera Course Dataset on Kaggle. While extensive, our recommendations will be based on the courses available within this dataset.</p>', unsafe_allow_html=True)
     st.markdown('<p class="style-text"><span class="highlight">Language and Regional Limitations:</span> The dataset and the recommendations may be biased towards courses available in certain languages or regions, since we are only focusing on English courses, which potentially limits recommendations for users seeking courses in less common languages or specific geographical areas.</p>', unsafe_allow_html=True)
     st.markdown('<p class="style-text"><span class="highlight">Accuracy and Coverage:</span> The recommendations generated will depend on the accuracy and coverage of the data and our recommendation model. We aim to optimize accuracy but acknowledge the inherent limitations of any recommendation system.</p>', unsafe_allow_html=True)
-
-    st.divider()
-    st.markdown('Eskwelabs Data Science Fellowship Cohort 13: Sprint 4')
-    st.markdown('A Project by: Alfonso Luis Kan, Carlos Lester Covarrubias II, Jacob Noel Fuentebella, Jules Juanites, and Smart Krys Lazam')
-                
+        
 elif my_page == 'Exploratory Data Analysis':
     st.title('Exploratory Data Analysis')
     st.markdown('Allow us to take you through the findings we obtained from our data')
