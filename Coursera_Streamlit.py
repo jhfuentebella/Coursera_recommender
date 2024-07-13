@@ -216,7 +216,7 @@ if my_page == 'About our App':
     """, unsafe_allow_html=True)
 
     st.markdown('<p class="style-text">This Streamlit app makes use of Coursera data to develop a machine learning model that can assist you in deciding the perfect online learning course fit to your needs.</p>', unsafe_allow_html=True)
-
+    st.markdown('A project by: 
     st.divider()
 
     st.header("Primary Learner Goals")
@@ -253,6 +253,10 @@ if my_page == 'About our App':
     st.markdown('<p class="style-text"><span class="highlight">Language and Regional Limitations:</span> The dataset and the recommendations may be biased towards courses available in certain languages or regions, since we are only focusing on English courses, which potentially limits recommendations for users seeking courses in less common languages or specific geographical areas.</p>', unsafe_allow_html=True)
     st.markdown('<p class="style-text"><span class="highlight">Accuracy and Coverage:</span> The recommendations generated will depend on the accuracy and coverage of the data and our recommendation model. We aim to optimize accuracy but acknowledge the inherent limitations of any recommendation system.</p>', unsafe_allow_html=True)
 
+    st.divider()
+    st.markdown('Eskwelabs Data Science Fellowship Cohort 13: Sprint 4')
+    st.markdown('A Project by: Alfonso Kan, Carlos Lester M Covarrubias II, Jacob Noel Fuentebella, Jules Juanites, and Smart Krys Lazam')
+                
 elif my_page == 'Exploratory Data Analysis':
     st.title('Exploratory Data Analysis')
     st.markdown('Allow us to take you through the findings we obtained from our data')
