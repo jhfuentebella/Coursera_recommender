@@ -253,7 +253,7 @@ if my_page == 'About our App':
 
     st.divider()
     st.markdown('Eskwelabs Data Science Fellowship Cohort 13: Sprint 4')
-    st.markdown('A Project by: Alfonso Kan, Carlos Lester M Covarrubias II, Jacob Noel Fuentebella, Jules Juanites, and Smart Krys Lazam')
+    st.markdown('A Project by: Alfonso Luis Kan, Carlos Lester Covarrubias II, Jacob Noel Fuentebella, Jules Juanites, and Smart Krys Lazam')
                 
 elif my_page == 'Exploratory Data Analysis':
     st.title('Exploratory Data Analysis')
