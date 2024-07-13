@@ -343,7 +343,7 @@ elif my_page == 'How does the Model work?':
 
 elif my_page == 'Course Recommender App':
     st.title('Course Recommender App')
-    st.markdown('\*DISCLAIMER: This online version of the app is limited to only 300 embedded data points due to file size restrictions on the GitHub cloud. Results may not be as accurate."
+    st.markdown('DISCLAIMER: This online version of the app is limited to only 300 embedded data points due to file size restrictions on the GitHub cloud. Results may not be as accurate.')
 
     df = pd.read_csv("cleaned_coursera_v2.csv")
 
